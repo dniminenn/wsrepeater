@@ -1,0 +1,459 @@
+body {
+    background-color: #1c1e26;
+    color: #c7c9cb;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #232530;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    color: #c7c9cb;
+    position: relative;
+    /*display: flex;*/
+    align-items: center;
+    transition: transform 0.3s ease;
+    min-height: 12em;
+}
+
+.icon-container {
+    flex: 0 0 auto;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 4em;
+    position: absolute;
+}
+
+.info-container {
+    margin-left: 4em;
+    flex: 1 1 auto;
+}
+
+.card i {
+    color: #e95678;
+    font-size: 2.5em;
+}
+
+.card table {
+    width: 100%;
+    margin: 0;
+}
+
+.card table td:first-child {
+    text-align: left;
+    color: #a6accd;
+    font-weight: normal;
+    opacity: 0.9;
+}
+
+.card table td:last-child {
+    text-align: right;
+    font-size: 1.4em;
+    color: #ffffff;
+    font-weight: bold;
+    min-width: 50px;
+}
+
+.card .unit {
+    color: #b877db;
+    font-weight: normal;
+}
+
+#additional-info {
+    font-size: 1.2em;
+    color: #fab795;
+    margin-top: 10px;
+}
+
+#temp-icon {
+    font-size: 3em;
+    margin-top: 10px;
+}
+
+#sun-moon-info {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    font-size: 1em;
+    color: #e95678;
+}
+
+#sun-info i,
+#moon-info i {
+    color: #e95678;
+}
+
+#buttons {
+    margin-top: 10px;
+}
+
+#buttons .btn {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: #25b2bc;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+#buttons .btn:hover {
+    background-color: #1e9da5;
+}
+
+@media (max-width: 530px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(250px, 1fr)
+        ); /* Slightly larger minimum width */
+        gap: 10px;
+    }
+
+    .card {
+        flex-direction: column;
+        align-items: flex-start;
+        min-height: 0px;
+    }
+
+    .icon-container {
+        margin-bottom: 10px;
+    }
+
+    .card i {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+
+    .card table td:last-child {
+        font-size: 1em;
+    }
+
+    .card .unit,
+    #additional-info {
+        font-size: 1em;
+    }
+
+    #temp-icon {
+        font-size: 2.2em;
+    }
+
+    #buttons .btn {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+
+    #sun-moon-info {
+        font-size: 0.9em;
+    }
+
+    /* Forecast Table - Mobile Friendly */
+    #forecast table {
+        /*display: block;*/
+    }
+
+    #forecast tr {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    #forecast td {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+}
+
+/* Additional Spacing for Better Vertical Alignment */
+.card-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+/* Specific Styles for Weather Information */
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.weather-info p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+/* Additional Styling for Sun/Moon Section */
+#sun-moon-info .info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#sun-moon-info .info-item i {
+    margin-bottom: 5px;
+    font-size: 1.5em;
+}
+
+/* Ensure All Card Items Are Aligned and Spaced Evenly */
+.card-content p,
+.card-content i,
+.card-content table,
+.card-content #additional-info,
+.card-content #buttons {
+    margin-bottom: 15px;
+}
+
+.card-content #buttons {
+    margin-top: auto;
+}
+
+#warning-blobs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.warning-badge {
+    background-color: #2ed573; /* Green - for no alerts */
+    width: 160px;
+    height: 30px;
+    border-radius: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #1c1e26; /* Dark background color for text */
+    font-weight: bold;
+    margin: 0 10px;
+    font-size: 14px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.warning-badge span {
+    margin-left: 5px;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #b877db; /* Purple - for badge count */
+    padding: 0 5px;
+    border-radius: 10px;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+
+.warning-badge.red {
+    background-color: #e95678; /* Red - for warnings */
+}
+
+.warning-badge.yellow {
+    background-color: #fab795; /* Yellow - for watches */
+}
+
+.warning-badge.grey {
+    background-color: #6c6f93; /* Grey - for statements */
+}
+
+/* Forecast div */
+#forecast {
+    margin-top: 20px;
+}
+
+/* Forecast Table */
+#forecast table {
+    width: 100%;
+    margin: 0 auto;
+    table-layout: fixed;
+    border-spacing: 10px; /* Spacing between the cells */
+}
+
+#forecast td {
+    padding: 15px;
+    background-color: #232530; /* Matching card background */
+    border-radius: 12px;
+    text-align: center;
+    vertical-align: top;
+    height: 150px; /* Fixed height to ensure all cards are the same height */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Matching card shadow */
+}
+
+.forecast-header {
+    font-size: 1.2em;
+    color: #e95678; /* Matching header text color */
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.forecast-day,
+.forecast-night {
+    color: #a6accd; /* Matching text color */
+}
+
+.forecast-day {
+    border-bottom: 1px solid #e95678; /* Matching day border color */
+    padding-bottom: 10px;
+}
+
+.forecast-night {
+    border-top: 1px solid #6272a4; /* Matching night border color */
+    padding-top: 10px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Make background semi-transparent */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #1c1e26;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Adjust as needed */
+    max-width: 1200px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    height: auto; /* Allow height to adjust */
+    max-height: 90vh; /* Max height for viewport */
+    overflow-y: auto; /* Scroll if content overflows */
+    padding-right: 40px;
+    margin-top: 20px;
+}
+
+.close-btn {
+    color: #c7c9cb;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+/* Layout for modal plots */
+#plot-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 35px;
+    justify-content: center;
+}
+
+.plot {
+    background-color: #232530;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+}
+
+/* Adjust plot size for larger screens */
+/*@media (min-width: 768px) {
+    #plot-container {
+        grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
+    }
+}*/
+
+/* Plotly adjustments for dark mode */
+.plotly .main-svg,
+.plotly .js-line {
+    stroke: #a6accd; /* Adjust line color */
+}
+
+.plotly .gridlayer .grid {
+    stroke: #333; /* Grid color */
+}
+
+.plotly .xaxislayer-above .xtick > text,
+.plotly .yaxislayer-above .ytick > text {
+    fill: #c7c9cb; /* Text color */
+}
+
+.plotly .zerolinelayer .yzl {
+    stroke: #444; /* Zero line color */
+}
+
+.plotly .legendtext {
+    fill: #c7c9cb; /* Legend text color */
+}
+
+.plotly .legendtoggle {
+    fill: #c7c9cb; /* Legend toggle color */
+}
+
+@media (max-width: 530px) {
+    .plot {
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+
+@media (min-width: 531px) and (max-width: 768px) {
+    .plot {
+        width: 90% !important;
+        height: auto !important;
+    }
+}
+
+#view-selectors {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.view-btn {
+    background-color: #6272a4;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-btn:hover {
+    background-color: #50fa7b;
+    color: #232530;
+}

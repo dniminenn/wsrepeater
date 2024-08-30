@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather Dashboard</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
+    </head>
+    <body>
+        <div class="header">
+            <div id="date-time-card" class="card">
+                <h2 id="day-time"><span>--</span></h2>
+                <i id="temp-icon" class="fas fa-sun"></i>
+                <div id="sun-moon-info">
+                    <div id="sun-info">
+                        <p>
+                            <i class="fas fa-sunrise"></i> Sunrise:
+                            <span id="sunrise">--</span>
+                        </p>
+                        <p>
+                            <i class="fas fa-sunset"></i> Sunset:
+                            <span id="sunset">--</span>
+                        </p>
+                    </div>
+                    <div id="moon-info">
+                        <p>
+                            <span id="moon-icon" style="font-size: 30px"></span>
+                            <span id="moonPhase">--</span>
+                            <br /><br />
+                            <span id="moonIllumination">Illumination: --%</span>
+                        </p>
+                    </div>
+                </div>
+                <div id="warning-blobs">
+                    <div id="kentBadge" class="warning-badge">KENT</div>
+                    <div id="westmorlandBadge" class="warning-badge">
+                        WESTMORLAND
+                    </div>
+                </div>
+                <div id="buttons">
+                    <a
+                        href="https://weather.gc.ca/?layers=,radar&center=46.20505910,-64.76284078&zoom=11"
+                        target="_blank"
+                        class="btn"
+                        >Radar</a
+                    >
+                    <a
+                        href="https://weather.gc.ca/city/pages/nb-36_metric_e.html"
+                        target="_blank"
+                        class="btn"
+                        >Moncton 5-Day</a
+                    >
+                    <a
+                        href="https://weather.gc.ca/city/pages/nb-1_metric_e.html"
+                        target="_blank"
+                        class="btn"
+                        >Bouctouche 5-Day</a
+                    >
+                    <a
+                        href="https://weather.gc.ca/city/pages/nb-17_metric_e.html"
+                        target="_blank"
+                        class="btn"
+                        >Shediac 5-Day</a
+                    >
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div id="temperature-card" class="card">
+                <div class="card-content">
+                    <div class="icon-container">
+                        <i class="fas fa-thermometer-three-quarters fa-4x"></i>
+                    </div>
+                    <div class="info-container">
+                        <table>
+                            <tr>
+                                <td><strong>Current:</strong></td>
+                                <td>
+                                    <span id="temp">--</span>
+                                    <span class="unit">°C</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>High:</strong></td>
+                                <td>
+                                    <span id="tempHigh">--</span>
+                                    <span class="unit">°C</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Low:</strong></td>
+                                <td>
+                                    <span id="tempLow">--</span>
+                                    <span class="unit">°C</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <strong id="additional-info"></strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="uv-humidity-card" class="card">
+                <div class="card-content">
+                    <div class="icon-container">
+                        <i class="fas fa-sun fa-4x"></i>
+                    </div>
+                    <div class="info-container">
+                        <table>
+                            <tr>
+                                <td><strong>UV Index:</strong></td>
+                                <td><span id="uv">--</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>UV High:</strong></td>
+                                <td><span id="uvHigh">--</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Humidity:</strong></td>
+                                <td>
+                                    <span id="humidity">--</span>
+                                    <span class="unit">%</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="wind-card" class="card">
+                <div class="card-content">
+                    <div class="icon-container">
+                        <i class="fas fa-wind fa-4x"></i>
+                    </div>
+                    <div class="info-container">
+                        <table>
+                            <tr>
+                                <td><strong>Direction:</strong></td>
+                                <td><span id="windDir">--</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Speed:</strong></td>
+                                <td>
+                                    <span id="windSpeed">--</span>
+                                    <span class="unit">km/h</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Gust:</strong></td>
+                                <td>
+                                    <span id="windGust">--</span>
+                                    <span class="unit">km/h</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Max Speed:</strong></td>
+                                <td>
+                                    <span id="windSpeedMax">--</span>
+                                    <span class="unit">km/h</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Max Gust:</strong></td>
+                                <td>
+                                    <span id="windGustMax">--</span>
+                                    <span class="unit">km/h</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="pressure-card" class="card">
+                <div class="card-content">
+                    <div class="icon-container">
+                        <i class="fas fa-tachometer-alt fa-4x"></i>
+                    </div>
+                    <div class="info-container">
+                        <table>
+                            <tr>
+                                <td><strong>Now:</strong></td>
+                                <td>
+                                    <span id="baro">--</span>
+                                    <span class="unit">hPa</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Max:</strong></td>
+                                <td>
+                                    <span id="pressureMax">--</span>
+                                    <span class="unit">hPa</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Min:</strong></td>
+                                <td>
+                                    <span id="pressureMin">--</span>
+                                    <span class="unit">hPa</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="rain-card" class="card">
+                <div class="card-content">
+                    <div class="icon-container">
+                        <i class="fas fa-cloud-rain fa-4x"></i>
+                    </div>
+                    <div class="info-container">
+                        <table>
+                            <tr>
+                                <td><strong>Daily:</strong></td>
+                                <td>
+                                    <span id="dailyRain">--</span>
+                                    <span class="unit">mm</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Weekly:</strong></td>
+                                <td>
+                                    <span id="weeklyRain">--</span>
+                                    <span class="unit">mm</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Monthly:</strong></td>
+                                <td>
+                                    <span id="monthlyRain">--</span>
+                                    <span class="unit">mm</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rate:</strong></td>
+                                <td>
+                                    <span id="rainRate">--</span>
+                                    <span class="unit">mm/h</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="indoor-card" class="card">
+                <div class="card-content">
+                    <div class="icon-container">
+                        <i class="fas fa-home fa-4x"></i>
+                    </div>
+                    <div class="info-container">
+                        <table>
+                            <tr>
+                                <td><strong>Indoor Temp:</strong></td>
+                                <td>
+                                    <span id="tempIn">--</span>
+                                    <span class="unit">°C</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Indoor Humidity:</strong></td>
+                                <td>
+                                    <span id="humidityIn">--</span>
+                                    <span class="unit">%</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="forecast-card-container">
+            <div id="forecast"></div>
+        </div>
+        <div id="plot-modal" class="modal">
+            <div class="modal-content">
+                <div id="view-selectors">
+                    <button id="daily-view" class="view-btn" data-days="1">
+                        1 Day
+                    </button>
+                    <button id="three-day-view" class="view-btn" data-days="3">
+                        3 Days
+                    </button>
+                    <button id="seven-day-view" class="view-btn" data-days="7">
+                        7 Days
+                    </button>
+                </div>
+                <div id="plot-container"></div>
+            </div>
+        </div>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="plot.js"></script>
+        <script src="script.js"></script>
+        <script src="warnings.js"></script>
+        <script src="daily.js"></script>
+    </body>
+</html>
